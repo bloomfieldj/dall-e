@@ -20,6 +20,10 @@ export default function Home() {
       setLoading(false);
       setImage(json.url);
     }
+    if (response.status === 429) {
+      setLoading(false);
+      alert(json.message);
+    }
     if (response.status === 500) {
       setLoading(false);
       alert(json.message);
