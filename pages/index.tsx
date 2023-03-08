@@ -79,7 +79,7 @@ export default function Home() {
             </button>
           </form>
           <div className="relative flex w-full items-center justify-center">
-            {image && (
+            {image ? (
               <div className="relative h-[400px] w-full rounded-md shadow-md sm:w-[400px]">
                 <Image
                   alt={`Dall-E representation of: ${prompt}`}
@@ -94,30 +94,30 @@ export default function Home() {
                   }}
                 />
               </div>
-            )}
-
-            <div
-              className={cn(
-                "absolute top-0.5 w-full overflow-hidden rounded-2xl bg-white/5 shadow-xl shadow-black/5 sm:w-[400px]",
-                {
-                  "before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-gray-500/10 before:to-transparent":
-                    showLoadingState,
-                  "opacity-0 shadow-none": canShowImage,
-                }
-              )}
-            >
+            ) : (
               <div
                 className={cn(
-                  "flex h-[400px] w-full items-center justify-center rounded-md bg-gray-200 shadow-md sm:w-[400px]"
+                  "absolute top-0.5 w-full overflow-hidden rounded-2xl bg-white/5 shadow-xl shadow-black/5 sm:w-[400px]",
+                  {
+                    "before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-gray-500/10 before:to-transparent":
+                      showLoadingState,
+                    "opacity-0 shadow-none": canShowImage,
+                  }
                 )}
               >
-                <p className="text-sm uppercase text-gray-400">
-                  {showLoadingState
-                    ? "Generating image...."
-                    : "No image selected"}
-                </p>
+                <div
+                  className={cn(
+                    "flex h-[400px] w-full items-center justify-center rounded-md bg-gray-200 shadow-md sm:w-[400px]"
+                  )}
+                >
+                  <p className="text-sm uppercase text-gray-400">
+                    {showLoadingState
+                      ? "Generating image...."
+                      : "No image selected"}
+                  </p>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
