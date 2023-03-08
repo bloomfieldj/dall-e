@@ -2,7 +2,7 @@
 
 All credit goes to the original repo's creator [Dom Eccleston](https://github.com/domeccleston)
 
-This project will generate images from text using [OpenAi's Node.js library](https://www.npmjs.com/package/openai) directly and without using Qstash or Redis.
+This project will generate images from text using [OpenAi's Node.js library](https://www.npmjs.com/package/openai) directly without Qstash or Redis.
 
 ![OG Image](/public/ogimage.png)
 
