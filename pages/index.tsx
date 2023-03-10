@@ -13,7 +13,7 @@ export default function Home() {
   async function submitForm(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
-    toast("Generating your image...", { position: "top-center" });
+    toast("Nous générons votre image...", { position: "top-center" });
     const response = await fetch(`/api/generate?prompt=${prompt}`);
     const json = await response.json();
     if (response.status === 202) {
@@ -35,13 +35,14 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Dall-E 2 AI Image Generator</title>
+        <title>Générateur d&apos;images</title>
       </Head>
-      <div className="mx-auto h-screen bg-gray-100 px-4 py-20 antialiased">
+      <div className="mx-auto h-screen bg-gray-100 px-4 antialiased">
         <Toaster />
         <div className="flex flex-col items-center justify-center">
+          <Image src={"/logo.svg"} alt="" width={443} height={100} />
           <h1 className="pb-10 text-5xl font-bold tracking-tighter text-gray-800">
-            Dall-E 2 image generator
+            Générateur d&apos;images
           </h1>
           <form
             className="mb-10 flex w-full flex-col sm:w-auto sm:flex-row"
@@ -50,7 +51,7 @@ export default function Home() {
             <input
               className="mb-4 rounded-sm px-3 py-2 text-gray-700 shadow-sm sm:mb-0 sm:min-w-[600px]"
               type="text"
-              placeholder="Prompt for DALL-E"
+              placeholder="Entrez vos instructions"
               onChange={(e) => setPrompt(e.target.value)}
             />
             <button
@@ -79,7 +80,7 @@ export default function Home() {
                   ></path>
                 </svg>
               )}
-              {!showLoadingState ? "Generate" : ""}
+              {!showLoadingState ? "Générer" : ""}
             </button>
           </form>
           <div className="relative flex w-full items-center justify-center">
@@ -116,8 +117,8 @@ export default function Home() {
                 >
                   <p className="text-sm uppercase text-gray-400">
                     {showLoadingState
-                      ? "Generating image...."
-                      : "No image selected"}
+                      ? "Generation d'image..."
+                      : "Aucune image générée"}
                   </p>
                 </div>
               </div>

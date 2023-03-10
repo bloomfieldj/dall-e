@@ -25,8 +25,9 @@ export default async function handler(
       // 5 requests per minute
       return res.status(429).json({
         message:
-          "You have exceeded the maximum number of requests. Please try again in a minute.",
-        description: "The user has exceeded the maximum number of requests",
+          "Vous avez généré trop d'images, attendez une minute avant de réessayer.",
+        description:
+          "Vous avez généré trop d'images, attendez une minute avant de réessayer.",
       });
     });
 
@@ -37,8 +38,6 @@ export default async function handler(
     });
     return res.status(202).json({ url: response.data.data[0].url });
   } catch (error) {
-    return res
-      .status(500)
-      .json({ message: error.message, type: "Internal server error" });
+    return res.status(500).json({ message: error.message, type: "Erreur" });
   }
 }
