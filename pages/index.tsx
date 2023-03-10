@@ -55,7 +55,7 @@ export default function Home() {
               onChange={(e) => setPrompt(e.target.value)}
             />
             <button
-              className="inline-flex min-h-[40px] items-center justify-center rounded-md bg-green-600 py-2 px-4 font-medium text-gray-100 shadow-sm hover:bg-green-700 sm:ml-2 sm:w-[100px]"
+              className="inline-flex min-h-[40px] items-center justify-center rounded-md bg-[#c93b3b] py-2 px-4 font-medium text-gray-100 shadow-sm hover:bg-red-700 sm:ml-2 sm:w-[100px]"
               type="submit"
             >
               {showLoadingState && (
